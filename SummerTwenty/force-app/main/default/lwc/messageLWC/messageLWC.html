@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="Message Channel LWC">
+        <div class="slds-p-around_medium">
+            <!-- Iterate over the list -->
+             <template for:each={messages} for:item="message">
+                <!-- we need to define the key attribute because the framework uses this key attribute to uniquely identify a item from a list -->
+                <div key={message.id} class="sfdcfacts-card">
+                    {message.from} > {message.value}
+                </div>
+             </template>
+        </div>
+
+        <div class="slds-p-around-medium">
+            <lightning-layout>
+                <lightning-layout-item size="9" class="slds-m-right_medium">
+                    <lightning-input type="text" variant="label-hidden">
+
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="3" class="slds-m-right_medium">
+                    <lightning-button label="Send" icon-name="utility:send" variant="brand" disabled={disabledSendButton} onclick={sendHandler}></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>
